@@ -102,11 +102,11 @@ public class Aplicacion {
 				mostrarMenuAdministrador();
 				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
 				if (opcion_seleccionada == 1)
-					ejecutarCargarAtletas();
+					//ejecutarCargarAtletas();
 				else if (opcion_seleccionada == 2 && calculadora != null)
-					ejecutarAtletasPorAnio();
+					//ejecutarAtletasPorAnio();
 				else if (opcion_seleccionada == 3 && calculadora != null)
-					ejecutarMedallasEnRango();
+					//ejecutarMedallasEnRango();
 				else if (opcion_seleccionada == 4)
 				{
 					System.out.println("Saliendo de la aplicación ...");
