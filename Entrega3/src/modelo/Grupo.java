@@ -5,14 +5,16 @@ import java.util.ArrayList;
 
 public class Grupo {
 	private ArrayList <Huesped> listaHuespedes;
+	private Huesped huespedResponsable;
 	private LocalDate fechaCheckIn;
 	private Boolean realizoCheckIn;
 	private LocalDate fechaCheckOut;
 	private Boolean realizocheckOut;
 	private ArrayList<Servicio> servicios;
 	
-	public Grupo(ArrayList<Huesped> listaHuespedes, LocalDate fechaCheckIn, LocalDate fechaCheckOut) {
+	public Grupo(ArrayList<Huesped> listaHuespedes, Huesped huespedResponsable, LocalDate fechaCheckIn, LocalDate fechaCheckOut) {
 		this.listaHuespedes = listaHuespedes;
+		this.huespedResponsable = huespedResponsable;
 		this.fechaCheckIn = fechaCheckIn;
 		this.realizoCheckIn = false;
 		this.fechaCheckOut = fechaCheckOut;
@@ -63,13 +65,19 @@ public class Grupo {
 	}
 
 
-	public void addServicios(Servicio servicio) {
+	public void addServicio(Servicio servicio) {
 		servicios.add(servicio);
 	}
 
 	public ArrayList<Huesped> getListaHuespedes() {
 		return listaHuespedes;
 	}
+
+	public Huesped getHuespedResponsable() {
+		return huespedResponsable;
+	}
+	
+	
 	
 	
 

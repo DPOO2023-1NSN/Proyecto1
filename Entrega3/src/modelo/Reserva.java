@@ -2,16 +2,17 @@ package modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Reserva {
 	private Grupo grupo;
 	private ArrayList <Habitacion> listaHabitaciones;
-	private static int ultimoId;
 	private int id;
 	private Estado estado;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
 	private int precio;
+	private Random rd = new Random();
 	
 	
 	@SuppressWarnings("static-access")
@@ -20,8 +21,7 @@ public class Reserva {
 		this.estado = Estado.RESERVADA;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.id = this.ultimoId + 1;
-		this.ultimoId++;
+		this.id = rd.nextInt(9000) + 1000;
 		this.listaHabitaciones = new ArrayList <Habitacion>();
 	}
 	
@@ -72,6 +72,31 @@ public class Reserva {
 
 	public int getPrecio() {
 		return precio;
+	}
+
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public void setListaHabitaciones(ArrayList<Habitacion> listaHabitaciones) {
+		this.listaHabitaciones = listaHabitaciones;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setFechaInicio(LocalDate fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public void setFechaFin(LocalDate fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 	
 	

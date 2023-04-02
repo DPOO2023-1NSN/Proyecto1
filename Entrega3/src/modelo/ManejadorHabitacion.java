@@ -82,7 +82,7 @@ public class ManejadorHabitacion {
 	public ArrayList<Habitacion> obtenerHabitaciones() {
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         
-        NodeList nodosHabitaciones = document.getElementsByTagName("HABITACION");
+        NodeList nodosHabitaciones = document.getElementsByTagName(HABITACION);
         
         for (int i = 0; i < nodosHabitaciones.getLength(); i++) {
             Element elementoHabitacion = (Element) nodosHabitaciones.item(i);
