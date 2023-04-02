@@ -66,6 +66,30 @@ public class Habitacion {
 	public void setReservada(Boolean reservada) {
 		this.reservada = reservada;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public Boolean getReservada() {
+		return reservada;
+	}
+
+	public Boolean getBalcon() {
+		return balcon;
+	}
+
+	public Boolean getVista() {
+		return vista;
+	}
+
+	public Boolean getCocina() {
+		return cocina;
+	}
 	
 	
 }

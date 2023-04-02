@@ -6,13 +6,16 @@ public class Huesped extends Usuario{
 	private String telefono;
 	
 	
-	public Huesped(int edad, String correoElectronico, String telefono) {
+	public Huesped(String nombreUsuario, String contraseña, String nombre, String documento, int edad, String correoElectronico, String telefono) {
+		super(nombreUsuario, contraseña, nombre, documento);
 		this.edad = edad;
 		this.correoElectronico = correoElectronico;
 		this.telefono = telefono;
 	}
 
 
+
+	
 	public int getEdad() {
 		return edad;
 	}

@@ -63,8 +63,12 @@ public class Grupo {
 	}
 
 
-	public void setServicios(ArrayList<Servicio> servicios) {
-		this.servicios = servicios;
+	public void addServicios(Servicio servicio) {
+		servicios.add(servicio);
+	}
+
+	public ArrayList<Huesped> getListaHuespedes() {
+		return listaHuespedes;
 	}
 	
 	

@@ -22,6 +22,7 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 		this.id = this.ultimoId + 1;
 		this.ultimoId++;
+		this.listaHabitaciones = new ArrayList <Habitacion>();
 	}
 	
 	public void agregarHabitacion(Habitacion habitacion) {
@@ -47,6 +48,30 @@ public class Reserva {
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public ArrayList<Habitacion> getListaHabitaciones() {
+		return listaHabitaciones;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public LocalDate getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public LocalDate getFechaFin() {
+		return fechaFin;
+	}
+
+	public int getPrecio() {
+		return precio;
 	}
 	
 	

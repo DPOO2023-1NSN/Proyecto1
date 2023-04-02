@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RESERVAS>
+            
+    
+    
+    <RESERVA estado="RESERVADA" fechaFin="2023-04-07" fechaInicio="2023-03-31" id="1" precio="0">
+                        
+        
+        <GRUPO fechaCheckIn="2023-03-31" fechaCheckOut="2023-04-07" realizoCheckIn="false" realizoCheckOut="false">
+                                    
+            
+            <HUESPED contraseña="pass1" correoElectronico="juan@example.com" documento="12345678" edad="25" nombre="Juan" nombreUsuario="user1" telefono="12345678"/>
+                                    
+            
+            <HUESPED contraseña="pass2" correoElectronico="pedro@example.com" documento="87654321" edad="30" nombre="Pedro" nombreUsuario="user2" telefono="87654321"/>
+                                    
+            
+            <HABITACION balcon="false" capacidadAdultos="2" capacidadNinios="0" cocina="false" id="506" reservada="false" tipo="0" vista="true"/>
+                                    
+            
+            <HABITACION balcon="false" capacidadAdultos="2" capacidadNinios="2" cocina="true" id="405" reservada="false" tipo="1" vista="true"/>
+                                
+        
+        </GRUPO>
+                    
+    
+    </RESERVA>
+        
+ 
+
+    <RESERVA estado="RESERVADA" fechaFin="2023-04-07" fechaInicio="2023-03-31" id="1" precio="0">
+        <GRUPO fechaCheckIn="2023-03-31" fechaCheckOut="2023-04-07" realizoCheckIn="false" realizoCheckOut="false">
+            <HUESPED contraseña="pass1" correoElectronico="juan@example.com" documento="12345678" edad="25" nombre="Juan" nombreUsuario="user1" telefono="12345678"/>
+            <HUESPED contraseña="pass2" correoElectronico="pedro@example.com" documento="87654321" edad="30" nombre="Pedro" nombreUsuario="user2" telefono="87654321"/>
+            <HABITACION balcon="false" capacidadAdultos="2" capacidadNinios="0" cocina="false" id="506" reservada="false" tipo="0" vista="true"/>
+            <HABITACION balcon="false" capacidadAdultos="2" capacidadNinios="2" cocina="true" id="405" reservada="false" tipo="1" vista="true"/>
+        </GRUPO>
+    </RESERVA>
+</RESERVAS>

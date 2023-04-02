@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<HABITACIONES>
+                    
+    
+    
+    
+    
+    <HABITACION ID="506">
+                                        
+        
+        
+        
+        <TIPO>0</TIPO>
+                                        
+        
+        
+        
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+                                        
+        
+        
+        
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+                                        
+        
+        
+        
+        <BALCON>true</BALCON>
+                                        
+        
+        
+        
+        <VISTA>false</VISTA>
+                                        
+        
+        
+        
+        <COCINA>true</COCINA>
+                                    
+    
+    
+    
+    </HABITACION>
+                
+    
+    
+    
+    <HABITACION ID="507">
+                                
+        
+        
+        <TIPO>0</TIPO>
+                                
+        
+        
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+                                
+        
+        
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+                                
+        
+        
+        <BALCON>true</BALCON>
+                                
+        
+        
+        <VISTA>false</VISTA>
+                                
+        
+        
+        <COCINA>true</COCINA>
+                            
+    
+    
+    </HABITACION>
+            
+    
+    
+    <HABITACION ID="508">
+                        
+        
+        <TIPO>0</TIPO>
+                        
+        
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+                        
+        
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+                        
+        
+        <BALCON>true</BALCON>
+                        
+        
+        <VISTA>false</VISTA>
+                        
+        
+        <COCINA>true</COCINA>
+                    
+    
+    </HABITACION>
+        
+    
+    <HABITACION ID="0">
+                
+        <TIPO>0</TIPO>
+                
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+                
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+                
+        <BALCON>true</BALCON>
+                
+        <VISTA>false</VISTA>
+                
+        <COCINA>true</COCINA>
+            
+    </HABITACION>
+    
+    <HABITACION ID="0">
+        <TIPO>0</TIPO>
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+        <BALCON>true</BALCON>
+        <VISTA>false</VISTA>
+        <COCINA>true</COCINA>
+    </HABITACION>
+    
+    <HABITACION ID="2020">
+        <TIPO>0</TIPO>
+        <CAPACIDADADULTOS>0</CAPACIDADADULTOS>
+        <CAPACIDADNINIOS>0</CAPACIDADNINIOS>
+        <BALCON>true</BALCON>
+        <VISTA>false</VISTA>
+        <COCINA>true</COCINA>
+    </HABITACION>
+</HABITACIONES>
