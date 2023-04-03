@@ -19,6 +19,7 @@ public class Grupo {
 		this.realizoCheckIn = false;
 		this.fechaCheckOut = fechaCheckOut;
 		this.realizocheckOut = false;
+		this.servicios = new ArrayList<Servicio>();
 	}
 	
 	public LocalDate getFechaCheckIn() {

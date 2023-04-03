@@ -12,6 +12,12 @@ public class Servicio {
 		this.precio = precio;
 		this.pagado = false;
 	}
+	
+
+	public int getId() {
+		return id;
+	}
+
 
 	public int getPrecio() {
 		return precio;
