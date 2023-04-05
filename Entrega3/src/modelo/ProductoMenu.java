@@ -5,9 +5,9 @@ import java.time.LocalTime;
 
 public class ProductoMenu extends Servicio{
 	private LocalTime horaInicio;
-	private LocalDate horaFin;
+	private LocalTime horaFin;
 	
-	public ProductoMenu(int id, String nombre, int precio, LocalTime horaInicio, LocalDate horaFin) {
+	public ProductoMenu(int id, String nombre, int precio, LocalTime horaInicio, LocalTime horaFin) {
 		super(id, nombre, precio);
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
@@ -38,7 +38,7 @@ public class ProductoMenu extends Servicio{
 		return horaInicio;
 	}
 
-	public LocalDate getHoraFin() {
+	public LocalTime getHoraFin() {
 		return horaFin;
 	}
 	
