@@ -12,10 +12,12 @@ public class Informacion {
 	
 	private ManejadorHabitacion manejadorHabitacion;
 	private ManejadorReserva manejadorReserva;
+	private ManejadorUsuario manejadorUsuario;
 	
 	public Informacion() throws SAXException, IOException, ParserConfigurationException {
 		this.manejadorHabitacion = new ManejadorHabitacion();
 		this.manejadorReserva = new ManejadorReserva();
+		this.manejadorUsuario = new ManejadorUsuario();
 	}
 	
 	public ArrayList<Habitacion> getHabitaciones() {
@@ -32,6 +34,14 @@ public class Informacion {
 	
 	public void addReserva(Reserva reserva) throws TransformerException {
 		manejadorReserva.agregarReserva(reserva);
+	}
+	
+	public void addUsuario(Usuario usuario) throws TransformerException {
+		manejadorUsuario.agregarUsuario(usuario);
+	}
+	
+	public void getUsuario(String nombreUsuario, String contraseña) {
+		manejadorUsuario.obtenerUsuario(nombreUsuario, contraseña);
 	}
 	
 	public static Precio getPrecios() {
