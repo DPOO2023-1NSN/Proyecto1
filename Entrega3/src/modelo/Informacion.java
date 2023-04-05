@@ -13,11 +13,13 @@ public class Informacion {
 	private ManejadorHabitacion manejadorHabitacion;
 	private ManejadorReserva manejadorReserva;
 	private ManejadorUsuario manejadorUsuario;
+	private ManejadorServicio manejadorServicio;
 	
 	public Informacion() throws SAXException, IOException, ParserConfigurationException {
 		this.manejadorHabitacion = new ManejadorHabitacion();
 		this.manejadorReserva = new ManejadorReserva();
 		this.manejadorUsuario = new ManejadorUsuario();
+		this.manejadorServicio = new ManejadorServicio();
 	}
 	
 	public ArrayList<Habitacion> getHabitaciones() {
@@ -54,13 +56,13 @@ public class Informacion {
 	}
 	
 
-	public static ArrayList<Servicio> getListaServicios() {
-		return Informacion.listaServicios;
+	public ArrayList<Servicio> getServicios() {
+		return manejadorServicio.obtenerServicios();
 	}
 
 
-	public static void addServicio(Servicio servicio) {
-		Informacion.listaServicios.add(servicio);
+	public void addServicio(Servicio servicio) throws TransformerException {
+		manejadorServicio.agregarServicio(servicio);
 	}
 	
 	
