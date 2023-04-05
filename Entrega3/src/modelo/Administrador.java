@@ -7,6 +7,10 @@ public class Administrador extends Usuario {
 	//POR SI EL ID SE VA A LLEVAR EN UNA CUENTA
 	private int contadorIdServicio= 0;
 	
+	public Administrador(String nombreUsuario, String contraseña, String nombre, String documento) {
+		super(nombreUsuario, contraseña, nombre, documento);
+	}
+	
 	public int getContadorIdServicio() {
 		return contadorIdServicio;
 	}
@@ -21,8 +25,7 @@ public class Administrador extends Usuario {
 	
 	public void crearHabitacion (int id, int tipo, int capacidadAdultos, int capacidadNiños, int cobro, Boolean balcon,
 			Boolean vista, Boolean cocina) {
-		Habitacion habitacion= new Habitacion (id,tipo,capacidadAdultos,capacidadNiños, cobro, balcon,
-			 vista, cocina);
+		Habitacion habitacion= new Habitacion (id,tipo,capacidadAdultos,capacidadNiños, cobro, balcon, vista, cocina);
 		getInformacion().addHabitacion (habitacion);	
 	}
 	public void crearProductoMenu (File archivoMenu) {

@@ -83,17 +83,20 @@ public class ManejadorReserva {
 	        
 	        // Crear nodos hijos para la lista de huespedes
 	        ArrayList<Huesped> huespedes = grupo.getListaHuespedes();
-	        for (Huesped huesped : huespedes) {
-	            Element huespedNode = document.createElement(HUESPED);
-	            huespedNode.setAttribute("nombreUsuario", huesped.getNombreUsuario());
-	            huespedNode.setAttribute("contraseña", huesped.getContraseña());
-	            huespedNode.setAttribute("nombre", huesped.getNombre());
-	            huespedNode.setAttribute("documento", huesped.getDocumento());
-	            huespedNode.setAttribute("edad", Integer.toString(huesped.getEdad()));
-	            huespedNode.setAttribute("correoElectronico", huesped.getCorreoElectronico());
-	            huespedNode.setAttribute("telefono", huesped.getTelefono());
-	            grupoNode.appendChild(huespedNode);
+	        if (huespedes != null) {
+	        	for (Huesped huesped : huespedes) {
+		            Element huespedNode = document.createElement(HUESPED);
+		            huespedNode.setAttribute("nombreUsuario", huesped.getNombreUsuario());
+		            huespedNode.setAttribute("contraseña", huesped.getContraseña());
+		            huespedNode.setAttribute("nombre", huesped.getNombre());
+		            huespedNode.setAttribute("documento", huesped.getDocumento());
+		            huespedNode.setAttribute("edad", Integer.toString(huesped.getEdad()));
+		            huespedNode.setAttribute("correoElectronico", huesped.getCorreoElectronico());
+		            huespedNode.setAttribute("telefono", huesped.getTelefono());
+		            grupoNode.appendChild(huespedNode);
+		        }
 	        }
+	        
 	        reservaNode.appendChild(grupoNode);
 	        
 	        // Crear nodos hijos para la lista de habitaciones

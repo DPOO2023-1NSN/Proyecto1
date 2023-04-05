@@ -14,8 +14,6 @@ public class Huesped extends Usuario{
 	}
 
 
-
-	
 	public int getEdad() {
 		return edad;
 	}
