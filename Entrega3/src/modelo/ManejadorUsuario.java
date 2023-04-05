@@ -107,11 +107,5 @@ public class ManejadorUsuario {
 	    return null;
 	}
 	
-	public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, TransformerException {
-		ManejadorUsuario ma = new ManejadorUsuario();
-		Empleado empleado = new Empleado("sergio", "jajja", "fafa", "131321", "administracion");
-		ma.agregarUsuario(empleado);
-		System.out.println(ma.obtenerUsuario("sergio", "jajja").getNombre());
-	}
 
 }

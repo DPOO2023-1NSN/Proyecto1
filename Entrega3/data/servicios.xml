@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SERVICIOS>
+                	
+
+    
+    
+    
+    <SERVICIO id="40" nombre="spa" pagado="false" precio="4500" type="servicio"/>
+                
+    
+    
+    <SERVICIO horafin="15:35" horainicio="13:00" id="45" nombre="almuerzo" pagado="false" precio="5000" type="producto"/>
+            
+    
+    
+    <SERVICIO id="40" nombre="spa" pagado="false" precio="4500" type="servicio"/>
+            
+    
+    <SERVICIO horafin="15:35" horainicio="13:00" id="45" nombre="almuerzo" pagado="false" precio="5000" type="producto"/>
+        
+    
+    <SERVICIO id="40" nombre="spa" pagado="false" precio="4500" type="servicio"/>
+        
+    <SERVICIO horafin="15:35" horainicio="13:00" id="45" nombre="almuerzo" pagado="false" precio="5000" type="producto"/>
+    
+    <SERVICIO id="40" nombre="spa" pagado="false" precio="4500" type="servicio"/>
+    <SERVICIO horafin="15:35" horainicio="13:00" id="45" nombre="almuerzo" pagado="false" precio="5000" type="producto"/>
+</SERVICIOS>
