@@ -3,6 +3,7 @@ package consola;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -156,13 +157,10 @@ public static void mostrarMenuAdministrador(){
 
 
 
+//REFERENTE AL EMPLEADO------------------------------------
 
 
-
-
-
-
-	public static void ejecutarMenuEmpleado() {
+	public static void mostrarMenuEmpleado() {
 		System.out.println("\nOpciones de la aplicación\n");
 		System.out.println("1. Reservar Habitación");
 		System.out.println("2. Cancelar Reserva");
@@ -174,6 +172,81 @@ public static void mostrarMenuAdministrador(){
 		System.out.println("8. Consultar Habitación");
 		System.out.println("9. Salir");
 	}
+public static void ejecutarEmpleado1(){
+	crearGrupo();
+	
+
+}
+public static ArrayList<ArrayList<String>> crearGrupo(){
+
+	
+	int numHuespedes =Integer.parseInt(input("ingrese el numero de integrantes del grupo, incluyento el huesped responsable"));
+	System.out.println("A continuación se le pedirán los datos de los huespedes del grupo, empiece por el huesped responsable ");
+	ArrayList<ArrayList<String>> listaHuespedes= new ArrayList<ArrayList<String>>();
+	
+	for (int i=0; i<numHuespedes; i++){
+//String nombreUsuario, String contraseña, String nombre, String documento, int edad, String correoElectronico, String telefono
+		System.out.println("Usted está creando la información del huesped #" + (i+1));
+		ArrayList<String> listaUnHuesped= new ArrayList<String>();
+		listaUnHuesped.add(input("ingrese el nombre de usuario: "));
+		listaUnHuesped.add(input("ingrese la contraseña: "));
+		listaUnHuesped.add(input("ingrese el nombre: "));
+		listaUnHuesped.add(input("ingrese el número de documento: "));
+		listaUnHuesped.add(input("ingrese la edad: "));
+		listaUnHuesped.add(input("ingrese el correo electrónico: "));
+		listaUnHuesped.add(input("ingrese el teléfono: "));
+
+		listaHuespedes.add(listaUnHuesped);
+
+		}
+		return listaHuespedes;
+}
+
+
+
+
+
+public static void ejecutarEmpleado2(){
+	
+}
+public static void ejecutarEmpleado3(){
+	
+}
+public static void ejecutarEmpleado4(){
+	
+}
+public static void ejecutarEmpleado5(){
+	
+}
+public static void ejecutarEmpleado6(){
+	
+}
+public static void ejecutarEmpleado7(){
+	
+}
+public static void ejecutarEmpleado8(){
+	
+}
+
+
+	public static void ejecutarMenuEmpleado() {
+		mostrarMenuEmpleado();
+		int opcionEmpleado= Integer.parseInt(input("seleccione el numero de la opción: "));
+
+		if (opcionEmpleado==1 ){ejecutarEmpleado1(); }
+		else if (opcionEmpleado==2 ){ejecutarEmpleado2(); }
+		else if (opcionEmpleado==3 ){ejecutarEmpleado3(); }
+		else if (opcionEmpleado==4 ){ejecutarEmpleado4(); }
+		else if (opcionEmpleado==5 ){ejecutarEmpleado5(); }
+		else if (opcionEmpleado==6 ){ejecutarEmpleado6(); }
+		else if (opcionEmpleado==7 ){ejecutarEmpleado7();}
+		else if (opcionEmpleado==6 ){ejecutarEmpleado8(); }
+
+	}
+
+
+
+//RELACIONADO A HUESPED
 
 	public static void ejecutarMenuHuesped() {
 		System.out.println("\nOpciones de la aplicación\n");
