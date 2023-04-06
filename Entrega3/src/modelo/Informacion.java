@@ -42,8 +42,8 @@ public class Informacion {
 		manejadorUsuario.agregarUsuario(usuario);
 	}
 	
-	public void getUsuario(String nombreUsuario, String contraseña) {
-		manejadorUsuario.obtenerUsuario(nombreUsuario, contraseña);
+	public Usuario getUsuario(String nombreUsuario, String contraseña) {
+		return (manejadorUsuario.obtenerUsuario(nombreUsuario, contraseña));
 	}
 	
 	public static Precio getPrecios() {

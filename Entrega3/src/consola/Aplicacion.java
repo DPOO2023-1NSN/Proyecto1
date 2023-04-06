@@ -4,13 +4,84 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import modelo.Usuario;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+
+import org.xml.sax.SAXException;
+
 import procesamiento.Hotel;
 
 public class Aplicacion {
-	private Hotel hotel;
+	private static Hotel hotel;
+	static {
+    try {
+        hotel = new Hotel();
+    } catch (SAXException | IOException | ParserConfigurationException ex) {
+        // Manejar o propagar la excepción según corresponda
+    }
+}
 
-	public void mostrarMenuAdministrador() {
+	public static void mostrarPrimerMenu (){
+		System.out.println("Bienvenido, ingrese el número de la opción que desea ejecutar");
+		System.out.println("1. Ingresar al sistema");
+		System.out.println("2. Crear un nuevo usuario");
+	}
+
+	public static void ejecutarLogIn() {
+		String nombreUsuario= input("nombre de usuario: ");
+		String contrasenia= input("contraseña: ");
+		int usuarioActual= hotel.ejecutarLogIn(nombreUsuario,contrasenia );
+		
+		if (usuarioActual==0){
+			System.out.println("El usuario no existe o la información es incorrecta, vuelva a intentarlo");
+		}
+		else if (usuarioActual==1){
+			ejecutarMenuAdministrador();
+		}
+		else if (usuarioActual==2){
+			ejecutarMenuEmpleado();
+		}
+		else {
+			ejecutarMenuHuesped();
+		}
+	}
+	public static void ejecutarRegistro() throws TransformerException{
+
+		System.out.println("que tipo de usuario desea crear?");
+		System.out.println("1. Administrador");
+		System.out.println("2. Empleado");
+		System.out.println("3. Huesped");
+		int tipoUsuario= Integer.parseInt(input("Escriba el numero de la opcion: "));
+		if (tipoUsuario== 1){
+			String nombreUsuarioR= input("nombre de Usuario: ");
+			String contraseniaR= input("contraseña: ");
+			String nombreR= input("nombre del administrador: ");
+			String documentoR= input("documento: ");
+			hotel.registrarAdmin(nombreUsuarioR, contraseniaR, nombreR, documentoR);
+		}
+		else if (tipoUsuario== 2){
+			String nombreUsuarioR= input("nombre de Usuario: ");
+			String contraseniaR= input("contraseña: ");
+			String nombreR= input("nombre del administrador: ");
+			String documentoR= input("documento: ");
+			String servicioR= input("servicio encargado: ");
+			hotel.registrarEmpleado(nombreUsuarioR, contraseniaR, nombreR, documentoR, servicioR);;
+		}
+		else{ //ES HUESPED
+			String nombreUsuarioR= input("nombre de Usuario: ");
+			String contraseniaR= input("contraseña: ");
+			String nombreR= input("nombre del administrador: ");
+			String documentoR= input("documento: ");
+			int edadR= Integer.parseInt(input("servicio encargado: "));
+			String correoR= input("correo electrónico: ");
+			String telefonoR= input("teléfono: ");
+			hotel.registrarHuesped(nombreUsuarioR, contraseniaR, nombreR, documentoR, edadR, correoR, telefonoR);
+		}
+
+	}
+	
+
+	public static void ejecutarMenuAdministrador() {
 		System.out.println("\nOpciones de la aplicación\n");
 		System.out.println("1. Asignar Precio de las habitaciones");
 		System.out.println("2. Cargar menus del restaurante");
@@ -22,15 +93,7 @@ public class Aplicacion {
 		System.out.println("8. Salir");
 	}
 
-	public void mostrarMenuHuesped() {
-		System.out.println("\nOpciones de la aplicación\n");
-		System.out.println("1. Reservar Habitación");
-		System.out.println("2. Cancelar Reserva");
-		System.out.println("3. Consultar pagos pendientes");
-		System.out.println("4. Salir");
-	}
-	
-	public void mostrarMenuEmpleado() {
+	public static void ejecutarMenuEmpleado() {
 		System.out.println("\nOpciones de la aplicación\n");
 		System.out.println("1. Reservar Habitación");
 		System.out.println("2. Cancelar Reserva");
@@ -42,8 +105,28 @@ public class Aplicacion {
 		System.out.println("8. Consultar Habitación");
 		System.out.println("9. Salir");
 	}
+
+	public static void ejecutarMenuHuesped() {
+		System.out.println("\nOpciones de la aplicación\n");
+		System.out.println("1. Reservar Habitación");
+		System.out.println("2. Cancelar Reserva");
+		System.out.println("3. Consultar pagos pendientes");
+		System.out.println("4. Salir");
+	}
 	
 
+
+	public static void main(String[]args) throws TransformerException{
+		mostrarPrimerMenu();
+		int OpcionPrimerMenu= Integer.parseInt(input("selecione: "));
+		if (OpcionPrimerMenu== 1) {ejecutarLogIn();}
+		else {ejecutarRegistro();}
+		
+		
+
+	}
+	
+/* 
 	public void ejecutarMenuAdministrador()
 	{
 		System.out.println("Estadísticas sobre los Juegos Olímpicos\n");
@@ -126,9 +209,9 @@ public class Aplicacion {
 				System.out.println("Debe seleccionar uno de los números de las opciones.");
 			}
 		}
-	}
+	}*/
 
-	public String input(String mensaje) {
+	public static String input(String mensaje) {
 		try {
 			System.out.print(mensaje + ": ");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
