@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -46,15 +47,34 @@ public class Informacion {
 		return (manejadorUsuario.obtenerUsuario(nombreUsuario, contraseña));
 	}
 	
-	public static Precio getPrecios() {
-		return precios;
+	public Precio getPrecio() {
+		return null;
 	}
 
 
-	public static void setPrecios(Precio precios) {
-		Informacion.precios = precios;
+	public void addPrecioFecha(LocalDate fecha, int precio) {
+		//Informacion.precios = precios;
 	}
 	
+	public void setPrecioAdulto(int precio) {
+		
+	}
+	
+	public void setPrecioNinio(int precio) {
+			
+		}
+	
+	public void setPrecioBalcon(int precio) {
+		
+	}
+	
+	public void setPrecioVista(int precio) {
+			
+	}
+	
+	public void setPrecioCocina(int precio) {
+		
+	}
 
 	public ArrayList<Servicio> getServicios() {
 		return manejadorServicio.obtenerServicios();

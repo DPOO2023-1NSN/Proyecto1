@@ -11,6 +11,8 @@ public class Precio {
 	private int precioAdulto;
 	private int precioNinio;
 	private int precioBalcon;
+	private int precioVista;
+	private int precioCocina;
 	
 	
 	public int getPrecioAdulto() {
@@ -52,9 +54,6 @@ public class Precio {
 	public void setPrecioCocina(int precioCocina) {
 		this.precioCocina = precioCocina;
 	}
-	private int precioVista;
-	private int precioCocina;
-	
 	
 	public Map<LocalDate, Integer> getPreciosEstandar() {
 		return preciosEstandar;
