@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -27,11 +28,16 @@ public class ManejadorServicio {
 	private static final String SERVICIOS = "SERVICIOS";
 	private Document document;
 	
-	public ManejadorServicio() throws SAXException, IOException, ParserConfigurationException {
-		this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Servicios);
+	public ManejadorServicio(){
+		try {
+			this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Servicios);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void agregarServicio(Servicio servicio) throws TransformerException {
+	public void agregarServicio(Servicio servicio){
 		Element elementoServicio = document.createElement(SERVICIO); 
 		
 		// Crea los atributos del elemento servicio
@@ -57,11 +63,20 @@ public class ManejadorServicio {
 		
         // Guardar los cambios en el archivo
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        Transformer transformer = transformerFactory.newTransformer();
+        Transformer transformer = null;
+		try {
+			transformer = transformerFactory.newTransformer();
+		} catch (TransformerConfigurationException e) {
+			e.printStackTrace();
+		}
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         DOMSource source = new DOMSource(document);
         StreamResult result = new StreamResult(XML_Servicios);
-        transformer.transform(source, result);
+        try {
+			transformer.transform(source, result);
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Servicio> obtenerServicios() {

@@ -15,7 +15,7 @@ public class Informacion {
 	private ManejadorUsuario manejadorUsuario;
 	private ManejadorServicio manejadorServicio;
 	
-	public Informacion() throws SAXException, IOException, ParserConfigurationException {
+	public Informacion(){
 		this.manejadorHabitacion = new ManejadorHabitacion();
 		this.manejadorReserva = new ManejadorReserva();
 		this.manejadorUsuario = new ManejadorUsuario();
@@ -26,7 +26,7 @@ public class Informacion {
 		return manejadorHabitacion.obtenerHabitaciones();
 	}
 	
-	public void addHabitacion(Habitacion habitacion) throws TransformerException {
+	public void addHabitacion(Habitacion habitacion){
 		manejadorHabitacion.agregarHabitacion(habitacion);
 	}
 	
@@ -34,11 +34,11 @@ public class Informacion {
 		return manejadorReserva.obtenerReservas();
 	}
 	
-	public void addReserva(Reserva reserva) throws TransformerException {
+	public void addReserva(Reserva reserva){
 		manejadorReserva.agregarReserva(reserva);
 	}
 	
-	public void addUsuario(Usuario usuario) throws TransformerException {
+	public void addUsuario(Usuario usuario){
 		manejadorUsuario.agregarUsuario(usuario);
 	}
 	
@@ -61,7 +61,7 @@ public class Informacion {
 	}
 
 
-	public void addServicio(Servicio servicio) throws TransformerException {
+	public void addServicio(Servicio servicio){
 		manejadorServicio.agregarServicio(servicio);
 	}
 	

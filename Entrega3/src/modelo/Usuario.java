@@ -13,7 +13,7 @@ public class Usuario {
 	private String documento;
 	private static Informacion informacion;
 	
-	public Usuario(String nombreUsuario, String contraseña, String nombre, String documento) throws SAXException, IOException, ParserConfigurationException {
+	public Usuario(String nombreUsuario, String contraseña, String nombre, String documento) {
 		this.nombreUsuario = nombreUsuario;
 		this.contraseña = contraseña;
 		this.nombre = nombre;

@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -33,15 +34,20 @@ public class ManejadorHabitacion {
 	
 	private Document document;
 	
-	public ManejadorHabitacion() throws SAXException, IOException, ParserConfigurationException {
-		this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Habitaciones);
+	public ManejadorHabitacion(){
+		try {
+			this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Habitaciones);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public NodeList getNodosHabitaciones() {
 		return document.getElementsByTagName("HABITACION");
 	}
 	
-	public void agregarHabitacion(Habitacion habitacion) throws TransformerException {
+	public void agregarHabitacion(Habitacion habitacion){
 		Node nodoHabitaciones = document.getFirstChild();
 		Element nuevaHabitacion = document.createElement(HABITACION);
 		nuevaHabitacion.setAttribute(ID, Integer.toString(habitacion.getId()));
@@ -71,12 +77,21 @@ public class ManejadorHabitacion {
 		cocina.appendChild(document.createTextNode(Boolean.toString(habitacion.getCocina())));
 		nuevaHabitacion.appendChild(cocina);
 		
-		DOMSource source = new DOMSource(document);
-		StreamResult result = new StreamResult(XML_Habitaciones);
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-		Transformer transformer = transformerFactory.newTransformer();
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.transform(source, result);
+        Transformer transformer = null;
+		try {
+			transformer = transformerFactory.newTransformer();
+		} catch (TransformerConfigurationException e) {
+			e.printStackTrace();
+		}
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        DOMSource source = new DOMSource(document);
+        StreamResult result = new StreamResult(XML_Habitaciones);
+        try {
+			transformer.transform(source, result);
+		} catch (TransformerException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Habitacion> obtenerHabitaciones() {

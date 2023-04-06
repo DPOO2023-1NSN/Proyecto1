@@ -1,13 +1,18 @@
 package modelo;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 public class Administrador extends Usuario {
 	//POR SI EL ID SE VA A LLEVAR EN UNA CUENTA
 	private int contadorIdServicio= 0;
 	
-	public Administrador(String nombreUsuario, String contraseña, String nombre, String documento) {
+	public Administrador(String nombreUsuario, String contraseña, String nombre, String documento){
 		super(nombreUsuario, contraseña, nombre, documento);
 	}
 	

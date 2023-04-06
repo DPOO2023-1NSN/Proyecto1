@@ -13,13 +13,6 @@ import procesamiento.Hotel;
 
 public class Aplicacion {
 	private static Hotel hotel;
-	static {
-    try {
-        hotel = new Hotel();
-    } catch (SAXException | IOException | ParserConfigurationException ex) {
-        // Manejar o propagar la excepción según corresponda
-    }
-}
 
 	public static void mostrarPrimerMenu (){
 		System.out.println("Bienvenido, ingrese el número de la opción que desea ejecutar");
@@ -45,7 +38,7 @@ public class Aplicacion {
 			ejecutarMenuHuesped();
 		}
 	}
-	public static void ejecutarRegistro() throws TransformerException{
+	public static void ejecutarRegistro(){
 
 		System.out.println("que tipo de usuario desea crear?");
 		System.out.println("1. Administrador");
@@ -116,7 +109,8 @@ public class Aplicacion {
 	
 
 
-	public static void main(String[]args) throws TransformerException{
+	public static void main(String[]args) throws TransformerException, SAXException, IOException, ParserConfigurationException{
+		hotel = new Hotel();
 		mostrarPrimerMenu();
 		int OpcionPrimerMenu= Integer.parseInt(input("selecione: "));
 		if (OpcionPrimerMenu== 1) {ejecutarLogIn();}

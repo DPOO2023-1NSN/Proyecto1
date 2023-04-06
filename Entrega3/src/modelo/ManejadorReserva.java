@@ -10,6 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -34,11 +35,16 @@ public class ManejadorReserva {
 
 	private Document document;
 		
-	public ManejadorReserva() throws SAXException, IOException, ParserConfigurationException {
-		this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Reservas);
+	public ManejadorReserva(){
+		try {
+			this.document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XML_Reservas);
+		} catch (SAXException | IOException | ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void agregarReserva(Reserva reserva) throws TransformerException {
+	public void agregarReserva(Reserva reserva){
 	        
 	        // Crear el nodo de reserva con sus respectivos nodos hijos
 	        Element reservaNode = document.createElement(RESERVA);
@@ -122,11 +128,20 @@ public class ManejadorReserva {
 	        
 	        // Guardar los cambios en el archivo
 	        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-	        Transformer transformer = transformerFactory.newTransformer();
+	        Transformer transformer = null;
+			try {
+				transformer = transformerFactory.newTransformer();
+			} catch (TransformerConfigurationException e) {
+				e.printStackTrace();
+			}
 	        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 	        DOMSource source = new DOMSource(document);
 	        StreamResult result = new StreamResult(XML_Reservas);
-	        transformer.transform(source, result);
+	        try {
+				transformer.transform(source, result);
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
 	        
 	    }
 	

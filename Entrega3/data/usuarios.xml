@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <USUARIOS>
+                        
+    
+    
+    
+    
+    
+    <USUARIO contraseña="jajja" documento="131321" nombre="fafa" servicio="administracion" type="empleado" usuario="sergio"/>
                     
     
     
@@ -19,5 +26,5 @@
     
     <USUARIO contraseña="jajja" documento="131321" nombre="fafa" servicio="administracion" type="empleado" usuario="sergio"/>
     
-    <USUARIO contraseña="jajja" documento="131321" nombre="fafa" servicio="administracion" type="empleado" usuario="sergio"/>
+    <USUARIO contraseña="ada" documento="121414" nombre="affa" type="administrador" usuario="ada"/>
 </USUARIOS>
