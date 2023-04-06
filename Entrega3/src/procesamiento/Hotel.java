@@ -77,6 +77,16 @@ public static void caragarArchivoServicios(String rutaArchivo){
 	//COMPLETAR______________________________________________________
 }
 
+//FUNCIONES EMPLEADO
+//NECESARIAS PARA CREAR RESERVA
+public Huesped crearHuesped(String nombreUsuario, String contraseña, String nombre, String documento, int edad, String correo, String telefono ){
+	Huesped huesped= new Huesped (nombreUsuario, contraseña, nombre, documento, edad, correo, telefono );
+	listaUsuarios.get(0).getinfo().addUsuario(huesped);
+	return huesped;
+}
+public Grupo crearGrupo (int numHuespedes){
+	
+}
 
 
 }
