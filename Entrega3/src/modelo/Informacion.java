@@ -35,7 +35,7 @@ public class Informacion {
 		return manejadorReserva.obtenerReservas();
 	}
 	
-	public void addReserva(Reserva reserva){
+	public  void addReserva(Reserva reserva){
 		manejadorReserva.agregarReserva(reserva);
 	}
 	

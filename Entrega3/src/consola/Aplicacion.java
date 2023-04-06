@@ -3,6 +3,7 @@ package consola;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -173,13 +174,21 @@ public static void mostrarMenuAdministrador(){
 		System.out.println("9. Salir");
 	}
 public static void ejecutarEmpleado1(){
-	crearGrupo();
+	;
+	LocalDate fechaCheckIn= LocalDate.of(Integer.parseInt(input("ingrese el año en el que hará el check In")),
+										 Integer.parseInt(input("ingrese el mes en el que hará el check In")),
+										 Integer.parseInt(input("ingrese el dia en el que hará el check In")));
+
+	LocalDate fechaCheckOut= LocalDate.of(Integer.parseInt(input("ingrese el año en el que hará el check Out")),
+										 Integer.parseInt(input("ingrese el mes en el que hará el check Out")),
+										 Integer.parseInt(input("ingrese el dia en el que hará el check Out")));
 	
+	hotel.crearGrupoYReserva(crearlistaGrupo(),fechaCheckIn, fechaCheckOut );
+
 
 }
-public static ArrayList<ArrayList<String>> crearGrupo(){
+public static ArrayList<ArrayList<String>> crearlistaGrupo(){
 
-	
 	int numHuespedes =Integer.parseInt(input("ingrese el numero de integrantes del grupo, incluyento el huesped responsable"));
 	System.out.println("A continuación se le pedirán los datos de los huespedes del grupo, empiece por el huesped responsable ");
 	ArrayList<ArrayList<String>> listaHuespedes= new ArrayList<ArrayList<String>>();
@@ -269,90 +278,7 @@ public static void ejecutarEmpleado8(){
 
 	}
 	
-/* 
-	public void ejecutarMenuAdministrador()
-	{
-		System.out.println("Estadísticas sobre los Juegos Olímpicos\n");
 
-		boolean continuar = true;
-		while (continuar)
-		{
-			try
-			{
-				mostrarMenuAdministrador();
-				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
-				if (opcion_seleccionada == 1)
-					ejecutarCargarAtletas();
-				else if (opcion_seleccionada == 2 && calculadora != null)
-					ejecutarAtletasPorAnio();
-				else if (opcion_seleccionada == 3 && calculadora != null)
-					ejecutarMedallasEnRango();
-				else if (opcion_seleccionada == 4 && calculadora != null)
-					ejecutarAtletasPorPais();
-				else if (opcion_seleccionada == 5 && calculadora != null)
-					ejecutarPaisConMasMedallistas();
-				else if (opcion_seleccionada == 6 && calculadora != null)
-					ejecutarMedallistasPorEvento();
-				else if (opcion_seleccionada == 7 && calculadora != null)
-					ejecutarAtletasConMasMedallasQue();
-				else if (opcion_seleccionada == 8)
-				{
-					System.out.println("Saliendo de la aplicación ...");
-					continuar = false;
-				}
-				else if (calculadora == null)
-				{
-					System.out.println("Para poder ejecutar esta opción primero debe cargar un archivo de atletas.");
-				}
-				else
-				{
-					System.out.println("Por favor seleccione una opción válida.");
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				System.out.println("Debe seleccionar uno de los números de las opciones.");
-			}
-		}
-	}
-	
-	public void ejecutarMenuEmpleado()
-	{
-		System.out.println("Estadísticas sobre los Juegos Olímpicos\n");
-
-		boolean continuar = true;
-		while (continuar)
-		{
-			try
-			{
-				mostrarMenuAdministrador();
-				int opcion_seleccionada = Integer.parseInt(input("Por favor seleccione una opción"));
-				if (opcion_seleccionada == 1)
-					//ejecutarCargarAtletas();
-				else if (opcion_seleccionada == 2 && calculadora != null)
-					//ejecutarAtletasPorAnio();
-				else if (opcion_seleccionada == 3 && calculadora != null)
-					//ejecutarMedallasEnRango();
-				else if (opcion_seleccionada == 4)
-				{
-					System.out.println("Saliendo de la aplicación ...");
-					continuar = false;
-				}
-				else if (calculadora == null)
-				{
-					System.out.println("Para poder ejecutar esta opción primero debe cargar un archivo de atletas.");
-				}
-				else
-				{
-					System.out.println("Por favor seleccione una opción válida.");
-				}
-			}
-			catch (NumberFormatException e)
-			{
-				System.out.println("Debe seleccionar uno de los números de las opciones.");
-			}
-		}
-	}*/
 
 	public static String input(String mensaje) {
 		try {

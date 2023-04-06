@@ -1,6 +1,7 @@
 package procesamiento;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -10,8 +11,11 @@ import org.xml.sax.SAXException;
 
 import modelo.Administrador;
 import modelo.Empleado;
+import modelo.Grupo;
 import modelo.Habitacion;
 import modelo.Huesped;
+import modelo.Informacion;
+import modelo.Reserva;
 import modelo.Usuario;
 
 public class Hotel {
@@ -79,13 +83,30 @@ public static void caragarArchivoServicios(String rutaArchivo){
 
 //FUNCIONES EMPLEADO
 //NECESARIAS PARA CREAR RESERVA
-public Huesped crearHuesped(String nombreUsuario, String contraseña, String nombre, String documento, int edad, String correo, String telefono ){
-	Huesped huesped= new Huesped (nombreUsuario, contraseña, nombre, documento, edad, correo, telefono );
-	listaUsuarios.get(0).getinfo().addUsuario(huesped);
-	return huesped;
-}
-public Grupo crearGrupo (int numHuespedes){
-	
+
+
+
+public void crearGrupoYReserva (ArrayList<ArrayList<String>> listaHuespedes, LocalDate fechaCheckIn, LocalDate fechaCheckOut){
+	ArrayList<Huesped> listhuespedes= new ArrayList <Huesped>();
+	for (int i=0; i< listaHuespedes.size();i++ ){
+		Huesped huespedTemporal= new Huesped(listaHuespedes.get(i).get(0),
+											 listaHuespedes.get(i).get(1),
+											 listaHuespedes.get(i).get(2),
+											 listaHuespedes.get(i).get(3),
+											 Integer.parseInt(listaHuespedes.get(i).get(4)),
+											 listaHuespedes.get(i).get(5),
+											 listaHuespedes.get(i).get(6)
+																			);
+		listhuespedes.add(huespedTemporal);
+		listaUsuarios.get(0).getinfo().addUsuario(huespedTemporal); //ADICIONALMENTE SE REGISTRA EN EL SISTEMA
+		}
+	Huesped huespedResponsable= listhuespedes.get(0);
+	listhuespedes.remove(0);
+
+	Grupo nuevoGrupo = new Grupo(listhuespedes, huespedResponsable, fechaCheckIn, fechaCheckOut);
+	Reserva nuevaReserva= new Reserva(nuevoGrupo, fechaCheckIn, fechaCheckOut);
+	listaUsuarios.get(0).getinfo().addReserva(nuevaReserva);
+
 }
 
 
