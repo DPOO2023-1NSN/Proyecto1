@@ -52,7 +52,7 @@ public class Informacion {
 	}
 
 
-	public void addPrecioFecha(LocalDate fecha, int precio) {
+	public void addPrecioFecha(LocalDate fecha, int precio, int tipo) {
 		//Informacion.precios = precios;
 	}
 	
@@ -62,7 +62,7 @@ public class Informacion {
 	
 	public void setPrecioNinio(int precio) {
 			
-		}
+	}
 	
 	public void setPrecioBalcon(int precio) {
 		

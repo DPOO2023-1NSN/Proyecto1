@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<PRECIOS>
+        
+    
+    <PRECIOSFECHA>
+                
+        
+        <f2022-10-30_0 precio="4000"/>
+            
+    </PRECIOSFECHA>
+        	                                 	
+
+    
+    
+
+ 
+    
+    
+    <PRECIOADULTO precio="1000"/>
+            
+    
+    <PRECIONINIO precio="4800"/>
+            
+    
+    <PRECIOBALCON precio="4000"/>
+            
+    
+    <PRECIOVISTA precio="53200"/>
+            
+    
+    <PRECIOCOCINA precio="56000"/>
+        
+
+</PRECIOS>
