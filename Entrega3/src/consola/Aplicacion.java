@@ -12,6 +12,8 @@ import org.xml.sax.SAXException;
 import procesamiento.Hotel;
 
 public class Aplicacion {
+
+	//PRIMERA FASE
 	private static Hotel hotel;
 
 	public static void mostrarPrimerMenu (){
@@ -72,19 +74,93 @@ public class Aplicacion {
 		}
 
 	}
+
+
+
+
+	//TODO LO REFERENTE AL ADMIN_____-----------------------------------------------------------------------------------------------
 	
+public static void mostrarMenuAdministrador(){
+	System.out.println("\nOpciones de la aplicación\n");
+	System.out.println("1. Asignar Precio de las habitaciones");
+	System.out.println("2. Cargar menus del restaurante");
+	System.out.println("3. Configurar platos del menu del restaurante");
+	System.out.println("4. Asignar precios del menú del restaurante");
+	System.out.println("5. Crear habitacion");
+	System.out.println("6. Cargar archivo de habitaciones");
+	System.out.println("7. Cargar tarifas de servicios");
+	System.out.println("8. Salir");
+	}
+
+//EJECUCIONES DE LAS FUNCIONES DEL ADMIN
+	public static void ejecutarAdmin1() {
+		int opcionTipoHab= Integer.parseInt(input("para que tipo de habitación quiere cambiar los precios? 1. Estandar, 2. Suit, 3. Suit doble "));
+			int diaInicio= Integer.parseInt(input("ingrese el dia de inicio (dos dígitos) "));
+			int mesInicio= Integer.parseInt(input("ingrese el mes de inicio (dos dígitos) "));
+			int diaFin= Integer.parseInt(input("ingrese el dia de fin (dos dígitos) "));
+			int mesfin= Integer.parseInt(input("ingrese el mes de fin (dos dígitos) "));
+			int diaSemanaInicio= Integer.parseInt(input("ingrese el dia de inicio de la semana (1 para lunes, etc.) "));
+			int diaSemanaFin= Integer.parseInt(input("ingrese el dia de fin de la semana (1 para lunes, etc.) "));
+			int precio= Integer.parseInt(input("ingrese el precio "));
+			hotel.asignarPrecioHabitaciones(opcionTipoHab, diaInicio, diaFin, mesInicio, mesfin, diaSemanaInicio, diaSemanaFin, precio);
+	}
+	public static void ejecutarAdmin2(){
+		String rutaArchivo= input("ingrese la ruta del archivo");
+		hotel.asignarMenusRestaurante(rutaArchivo);
+	}
+	public static void ejecutarAdmin3(){
+		
+	}
+	public static void ejecutarAdmin4(){
+		String nombrePlato= input("ingrese el nombre del plato");
+		int nuevoPrecio= Integer.parseInt(input("ingrese el nuevo precio del plato"));
+		hotel.cambiarPlatoRestaurante(nombrePlato, nuevoPrecio);
+	}
+	public static void ejecutarAdmin5(){
+		int id= Integer.parseInt(input("ingrese el id de la habitación"));
+		int tipo=Integer.parseInt(input("ingrese el tipo de habitación, 0. estándar, 1. Suit, 2. Suit doble"));
+		int capacidadAdultos=Integer.parseInt(input("ingrese la capacidad de los adultos"));
+		int capacidadNiños= Integer.parseInt(input("ingrese la capacidad de los niños"));
+		Boolean balcon= Boolean.parseBoolean(input("ingrese si la habitación tiene balcón (escriba true/false)"));
+		Boolean vista=Boolean.parseBoolean(input("ingrese si la habitación tiene vista (escriba true/false)"));
+		Boolean cocina=Boolean.parseBoolean(input("ingrese si la habitación tiene cocina (escriba true/false)"));
+	}
+	public static void ejecutarAdmin6(){
+		String rutaArchivo= input("ingrese la ruta del archivo");
+		hotel.caragarArchivoHabitaciones(rutaArchivo);
+	}
+	public static void ejecutarAdmin7(){
+		String rutaArchivo= input("ingrese la ruta del archivo");
+		hotel.caragarArchivoServicios(rutaArchivo);
+	}
+
 
 	public static void ejecutarMenuAdministrador() {
-		System.out.println("\nOpciones de la aplicación\n");
-		System.out.println("1. Asignar Precio de las habitaciones");
-		System.out.println("2. Cargar menus del restaurante");
-		System.out.println("3. Configurar platos del menu del restaurante");
-		System.out.println("4. Asignar precios del menú del restaurante");
-		System.out.println("5. Crear habitacion");
-		System.out.println("6. Cargar archivo de habitaciones");
-		System.out.println("7. Cargar tarifas de servicios");
-		System.out.println("8. Salir");
+		mostrarMenuAdministrador();
+		int opcionAdmin= Integer.parseInt(input("seleccione el numero de la opción: "));
+
+		if (opcionAdmin==1 ){ejecutarAdmin1(); }
+		else if (opcionAdmin==2 ){ejecutarAdmin2(); }
+		else if (opcionAdmin==3 ){ejecutarAdmin3(); }
+		else if (opcionAdmin==4 ){ejecutarAdmin4(); }
+		else if (opcionAdmin==5 ){ejecutarAdmin5(); }
+		else if (opcionAdmin==6 ){ejecutarAdmin6(); }
+		else if (opcionAdmin==7 ){ejecutarAdmin7();}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public static void ejecutarMenuEmpleado() {
 		System.out.println("\nOpciones de la aplicación\n");

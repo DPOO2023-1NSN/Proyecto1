@@ -10,18 +10,19 @@ import org.xml.sax.SAXException;
 
 import modelo.Administrador;
 import modelo.Empleado;
+import modelo.Habitacion;
 import modelo.Huesped;
 import modelo.Usuario;
 
 public class Hotel {
-	private ArrayList <Usuario> listaUsuarios;
+	private static ArrayList <Usuario> listaUsuarios;
 	
 
 	public Hotel () throws SAXException, IOException, ParserConfigurationException{
-		this.listaUsuarios= new ArrayList<Usuario>();
+		Hotel.listaUsuarios= new ArrayList<Usuario>();
 		listaUsuarios.add(new Usuario("Absoluto", "none", "absoluto", "none"));
 	}
-
+//LOGIN Y REGISTRO
 	public int ejecutarLogIn (String nombreUsuario, String contrasenia){
 		 Usuario usuarioActual= (listaUsuarios.get(0).getinfo().getUsuario(nombreUsuario, contrasenia));
 		 if (usuarioActual== null) {
@@ -51,7 +52,30 @@ public class Hotel {
 		listaUsuarios.get(0).getinfo().addUsuario(huesped);
 	}
 
-
+//FUNCCIONES ADMIN
+public static void asignarPrecioHabitaciones(int tipo, int diaInicio, int diaFin, int mesInicio, int mesfin, int diaSemanaInicio, int diaSemanaFin,
+											int precio)
+				 {
+	//COMPLETAR-----------------------------------------------------
+				}
+public static void asignarMenusRestaurante( String rutaArchivo)
+				 {
+	//COMPLETAR---------------------------------------------------------------
+				}
+public static void cambiarPlatoRestaurante( String nombrePlato, int nuevoPrecio)
+				 {
+	//COMPLETAR---------------------------------------------------------------
+				}
+public static void crearHabitacion(int id, int tipo, int capacidadAdultos, int capacidadNiños, Boolean balcon, Boolean vista, Boolean cocina){
+	Habitacion nuevHabitacion= new Habitacion(id, tipo, capacidadAdultos, capacidadNiños, balcon, vista, cocina);
+	listaUsuarios.get(0).getinfo().addHabitacion(nuevHabitacion);
+}
+public static void caragarArchivoHabitaciones(String rutaArchivo){
+	//COMPLETAR______________________________________________________
+}
+public static void caragarArchivoServicios(String rutaArchivo){
+	//COMPLETAR______________________________________________________
+}
 
 
 
