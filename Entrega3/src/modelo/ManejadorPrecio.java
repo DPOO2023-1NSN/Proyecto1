@@ -3,6 +3,8 @@ package modelo;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -256,18 +258,60 @@ public class ManejadorPrecio {
 		}
 	}
 	
-	public void obtenerPrecios(){
-			
-		}
-	
-	public static void main(String[] args) {
-		ManejadorPrecio mp = new ManejadorPrecio();
-		System.out.println(LocalDate.parse("2022-10-23").toString());
-		mp.agregarPrecioFecha(LocalDate.parse("2022-10-30"), 4000, 0);
-		mp.setPrecioAdulto(1000);
-		mp.setPrecioNinio(4800);
-		mp.setPrecioBalcon(4000);
-		mp.setPrecioVista(53200);
-		mp.setPrecioCocina(56000);
+	public Precio obtenerPrecios(){
+		// Inicia los mapas de precios
+		Map <LocalDate, Integer> preciosEstandar = new HashMap<>();
+		Map <LocalDate, Integer> preciosSuit = new HashMap<>();
+		Map <LocalDate, Integer> preciosSuitDoble = new HashMap<>();
+		
+		NodeList nodosFechas = document.getElementsByTagName(PRECIOSFECHA).item(0).getChildNodes();
+
+		// Recorre los nodos de fechas
+        for (int i = 0; i < nodosFechas.getLength(); i++) {
+        	Node fechaNode = nodosFechas.item(i);
+        	
+        	// Comprueba se el nodo puede ser casteado a elemento
+        	if (fechaNode.getNodeType() == Node.ELEMENT_NODE) {
+        		Element fechaElement = (Element) nodosFechas.item(i);
+                
+                // Extrae la fecha, el tipo y el precio del nodo
+                String[] nodeNameSplit = fechaElement.getNodeName().split("_");
+                LocalDate fecha = LocalDate.parse(nodeNameSplit[0].replace("f", ""));
+                int tipo = Integer.parseInt(nodeNameSplit[1]);
+                int precio = Integer.parseInt(fechaElement.getAttribute("precio"));
+                
+                if(tipo == 0)
+                	preciosEstandar.put(fecha, precio);
+                else if(tipo == 1)
+                	preciosSuit.put(fecha, precio);
+                else if(tipo == 2)
+                	preciosSuitDoble.put(fecha, precio);
+        	}
+   
+            
+        }
+        
+        // Encuentra el precio de adulto
+        Element adultoElement = (Element) document.getElementsByTagName(PRECIOADULTO).item(0);
+        int precioAdulto = Integer.parseInt(adultoElement.getAttribute("precio"));
+        
+        // Encuentra el precio de niño
+        Element ninioElement = (Element) document.getElementsByTagName(PRECIONINIO).item(0);
+        int precioNinio = Integer.parseInt(ninioElement.getAttribute("precio"));
+        
+        // Encuentra el precio de balcon
+        Element balconElement = (Element) document.getElementsByTagName(PRECIOBALCON).item(0);
+        int precioBalcon = Integer.parseInt(balconElement.getAttribute("precio"));
+        
+        // Encuentra el precio de vista
+        Element vistaElement = (Element) document.getElementsByTagName(PRECIOVISTA).item(0);
+        int precioVista = Integer.parseInt(vistaElement.getAttribute("precio"));
+        
+        // Encuentra el precio de cocina
+        Element cocinaElement = (Element) document.getElementsByTagName(PRECIOCOCINA).item(0);
+        int precioCocina = Integer.parseInt(cocinaElement.getAttribute("precio"));
+        
+        return new Precio(preciosEstandar, preciosSuit, preciosSuitDoble, precioAdulto, precioNinio, precioBalcon, precioVista, precioCocina);
 	}
+	
 }

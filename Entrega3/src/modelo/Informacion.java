@@ -15,12 +15,14 @@ public class Informacion {
 	private ManejadorReserva manejadorReserva;
 	private ManejadorUsuario manejadorUsuario;
 	private ManejadorServicio manejadorServicio;
+	private ManejadorPrecio manejadorPrecio;
 	
 	public Informacion(){
 		this.manejadorHabitacion = new ManejadorHabitacion();
 		this.manejadorReserva = new ManejadorReserva();
 		this.manejadorUsuario = new ManejadorUsuario();
 		this.manejadorServicio = new ManejadorServicio();
+		this.manejadorPrecio = new ManejadorPrecio();
 	}
 	
 	public ArrayList<Habitacion> getHabitaciones() {
@@ -48,32 +50,32 @@ public class Informacion {
 	}
 	
 	public Precio getPrecio() {
-		return null;
+		return manejadorPrecio.obtenerPrecios();
 	}
 
 
 	public void addPrecioFecha(LocalDate fecha, int precio, int tipo) {
-		//Informacion.precios = precios;
+		manejadorPrecio.agregarPrecioFecha(fecha, precio, tipo);
 	}
 	
 	public void setPrecioAdulto(int precio) {
-		
+		manejadorPrecio.setPrecioAdulto(precio);
 	}
 	
 	public void setPrecioNinio(int precio) {
-			
+		manejadorPrecio.setPrecioNinio(precio);
 	}
 	
 	public void setPrecioBalcon(int precio) {
-		
+		manejadorPrecio.setPrecioBalcon(precio);
 	}
 	
 	public void setPrecioVista(int precio) {
-			
+		manejadorPrecio.setPrecioVista(precio);
 	}
 	
 	public void setPrecioCocina(int precio) {
-		
+		manejadorPrecio.setPrecioCocina(precio);
 	}
 
 	public ArrayList<Servicio> getServicios() {
