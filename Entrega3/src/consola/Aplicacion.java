@@ -222,7 +222,13 @@ public static void ejecutarEmpleado2(){
 }
 public static void ejecutarEmpleado3(){
 	int id= Integer.parseInt(input("ingrese el id de la reserva"));
-	hotel
+	ArrayList <Integer> listPrecios= hotel.consultarPagosPendientesPrecio(id);
+	ArrayList<String> listPreciosNombre= hotel.consultarPagosPendientesNombre(id);
+	for (int i=0; i<listPrecios.size(); i++) {
+		System.out.println(listPrecios.get(i));
+		System.out.println(listPreciosNombre.get(i));
+		
+	}
 	
 }
 public static void ejecutarEmpleado4(){

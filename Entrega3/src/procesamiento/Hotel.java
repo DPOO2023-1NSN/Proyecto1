@@ -16,6 +16,7 @@ import modelo.Habitacion;
 import modelo.Huesped;
 import modelo.Informacion;
 import modelo.Reserva;
+import modelo.Servicio;
 import modelo.Usuario;
 import modelo.Estado;
 
@@ -114,7 +115,8 @@ public void cancelarReserva(int id) {
 	Estado nuevoEstado= Estado.TERMINADA;
 	listaUsuarios.get(0).getinfo().cambiarEstadoReserva(id, nuevoEstado);
 }
-public void consultarPagosPendientes(int id) {
+public ArrayList<Integer> consultarPagosPendientesPrecio(int id) {
+	 ArrayList<Integer> listPrecios= new  ArrayList<Integer>();
 	ArrayList<Reserva> listReservas= listaUsuarios.get(0).getinfo().getReservas();
 	Reserva reserva= null;
 	for (int i=0; i<listReservas.size(); i++) {
@@ -122,7 +124,27 @@ public void consultarPagosPendientes(int id) {
 			reserva= listReservas.get(i);
 		}
 	}
-	reserva
+	ArrayList<Servicio> listservicios= reserva.getGrupo().getServicios();
+	
+	for (int i=0; i<listservicios.size(); i++) {
+	listPrecios.add(listservicios.get(i).getPrecio());
+	}
+	return listPrecios;
 }
-
+public ArrayList<String> consultarPagosPendientesNombre(int id) {
+	 ArrayList<String> listPrecios= new  ArrayList<String>();
+	ArrayList<Reserva> listReservas= listaUsuarios.get(0).getinfo().getReservas();
+	Reserva reserva= null;
+	for (int i=0; i<listReservas.size(); i++) {
+		if (listReservas.get(i).getId()== (id)) {
+			reserva= listReservas.get(i);
+		}
+	}
+	ArrayList<Servicio> listservicios= reserva.getGrupo().getServicios();
+	
+	for (int i=0; i<listservicios.size(); i++) {
+	listPrecios.add(listservicios.get(i).getNombre());
+	}
+	return listPrecios;
+}
 }
