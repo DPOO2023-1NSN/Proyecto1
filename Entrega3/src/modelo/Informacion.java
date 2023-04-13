@@ -91,6 +91,9 @@ public class Informacion {
 		
 	}
 	
+	public void agregarServicioReserva(int id, Servicio servicio) {
+		
+	}
 	
 	
 	
