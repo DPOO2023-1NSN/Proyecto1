@@ -163,7 +163,7 @@ public static void mostrarMenuAdministrador(){
 
 	public static void mostrarMenuEmpleado() {
 		System.out.println("\nOpciones de la aplicación\n");
-		System.out.println("1. Reservar Habitación");
+		System.out.println("1. Reservar Habitación(es)");
 		System.out.println("2. Cancelar Reserva");
 		System.out.println("3. Consultar pagos pendientes");
 		System.out.println("4. Registrar Cobro");
@@ -174,6 +174,7 @@ public static void mostrarMenuAdministrador(){
 		System.out.println("9. Salir");
 	}
 public static void ejecutarEmpleado1(){
+	int idReserva= 0; //PENDIENTE
 	;
 	LocalDate fechaCheckIn= LocalDate.of(Integer.parseInt(input("ingrese el año en el que hará el check In")),
 										 Integer.parseInt(input("ingrese el mes en el que hará el check In")),
@@ -184,7 +185,19 @@ public static void ejecutarEmpleado1(){
 										 Integer.parseInt(input("ingrese el dia en el que hará el check Out")));
 	
 	hotel.crearGrupoYReserva(crearlistaGrupo(),fechaCheckIn, fechaCheckOut );
-
+	
+	System.out.println("la reserva ha sido creada, introduzca los ids de las habitaciones que desea reservar");
+	Boolean continuar= true;
+	while (continuar== true) {
+		int idHabitacion =Integer.parseInt(input("ingrese el id de la habitación: "));
+		Boolean disponible= hotel.añadirALaReserva(idHabitacion, idReserva);
+		if (disponible==true) {System.out.println("La habitación se ha reservado con éxito");}
+		else {System.out.println("La habitación no está disponible o no existe");}
+		continuar= Boolean.parseBoolean(input("desea añadir más habitaciones a la reserva? escriba true/false"));
+		
+	}
+	
+	ejecutarMenuEmpleado();
 
 }
 public static ArrayList<ArrayList<String>> crearlistaGrupo(){
@@ -218,7 +231,7 @@ public static ArrayList<ArrayList<String>> crearlistaGrupo(){
 public static void ejecutarEmpleado2(){
 	int id= Integer.parseInt(input("ingrese el id de la reserva"));
 	hotel.cancelarReserva(id);
-	
+	ejecutarMenuEmpleado();
 }
 public static void ejecutarEmpleado3(){
 	int id= Integer.parseInt(input("ingrese el id de la reserva"));
@@ -229,21 +242,42 @@ public static void ejecutarEmpleado3(){
 		System.out.println(listPreciosNombre.get(i));
 		
 	}
-	
+	ejecutarMenuEmpleado();
 }
 public static void ejecutarEmpleado4(){
-	
+	int id= Integer.parseInt(input("ingrese el id de la reserva"));
+	String nombreServicio= input("ingrese el nombre del servicio a registrar");
+	hotel.registrarCobro(id, nombreServicio);
+	ejecutarMenuEmpleado();
 }
 public static void ejecutarEmpleado5(){
+	int id= Integer.parseInt(input("ingrese el id de la reserva"));
+	hotel.checkIn(id);
+	System.out.print("El check in se ha realizado con éxito");
+	ejecutarMenuEmpleado();
 	
 }
 public static void ejecutarEmpleado6(){
+	int id= Integer.parseInt(input("ingrese el id de la reserva"));
+	ArrayList <Integer> listPrecios= hotel.consultarPagosPendientesPrecio(id);
+	ArrayList<String> listPreciosNombre= hotel.consultarPagosPendientesNombre(id);
+	System.out.println("A continuación verá los pagos pendientes, asegurese de hacer el cobro en caja antes de confirmar el check out");
+	for (int i=0; i<listPrecios.size(); i++) {
+		System.out.println(listPrecios.get(i));
+		System.out.println(listPreciosNombre.get(i));
+		}
+	int opcion= Integer.parseInt(input("Seleccione 0 para cancelar, seleccione 1 para confirmar"));
+	if (opcion==1) {hotel.checkOut(id);}
+	else {ejecutarMenuEmpleado();}
+
 	
 }
 public static void ejecutarEmpleado7(){
 	
 }
 public static void ejecutarEmpleado8(){
+	int id= Integer.parseInt(input("ingrese el id de la habitación que desea consultar"));
+	
 	
 }
 

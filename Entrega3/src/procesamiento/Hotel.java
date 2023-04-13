@@ -143,8 +143,44 @@ public ArrayList<String> consultarPagosPendientesNombre(int id) {
 	ArrayList<Servicio> listservicios= reserva.getGrupo().getServicios();
 	
 	for (int i=0; i<listservicios.size(); i++) {
+		if (listservicios.get(i).getPagado()== false) {
 	listPrecios.add(listservicios.get(i).getNombre());
+		}
 	}
 	return listPrecios;
+	}
+
+public void registrarCobro (int idReserva , String nombreServicio) {
+	Servicio servicioActual= null;
+	ArrayList<Servicio> listaServicios= listaUsuarios.get(0).getinfo().getServicios();
+	for (int i=0; i<listaServicios.size(); i++) {
+		if (listaServicios.get(i).getNombre().equals(nombreServicio)) {
+			servicioActual= listaServicios.get(i);
+		}
+	}
+	listaUsuarios.get(0).getinfo().agregarServicioReserva(idReserva, servicioActual);	
+	}
+public void checkIn (int idReserva) {
+	listaUsuarios.get(0).getinfo().cambiarEstadoReserva(idReserva, (Estado.ENPROCESO));
+}
+public void checkOut (int idReserva) {
+	listaUsuarios.get(0).getinfo().cambiarEstadoReserva(idReserva, (Estado.TERMINADA));
+}
+public Boolean añadirALaReserva(int idHabitacion, int idReserva) {
+	ArrayList<Habitacion> listaHabitaciones= listaUsuarios.get(0).getinfo().getHabitaciones();
+	for (int i=0; i<listaHabitaciones.size(); i++) {
+		if (listaHabitaciones.get(i).getId()==idHabitacion) {
+			Habitacion habitacion= listaHabitaciones.get(i);
+			if (habitacion.getReservada()==false) {
+				ArrayList<Reserva> listaReservas= listaUsuarios.get(0).getinfo().getReservas();
+				for (int j=0; j<listaReservas.size(); j++) {
+					if (listaReservas.get(i).getId()== idReserva) {
+						listaReservas.get(i).agregarHabitacion(habitacion);
+					}
+				}
+				return true;}	
+		}
+	}
+	return false;
 }
 }

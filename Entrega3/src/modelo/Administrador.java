@@ -30,7 +30,7 @@ public class Administrador extends Usuario {
 	
 	public void crearHabitacion (int id, int tipo, int capacidadAdultos, int capacidadNiños, int cobro, Boolean balcon,
 			Boolean vista, Boolean cocina) {
-		Habitacion habitacion= new Habitacion (id,tipo,capacidadAdultos,capacidadNiños, cobro, balcon, vista, cocina);
+		Habitacion habitacion= new Habitacion (id,tipo,capacidadAdultos,capacidadNiños, balcon, vista, cocina);
 		getinfo().addHabitacion (habitacion);	
 	}
 	public void crearProductoMenu (File archivoMenu) {
