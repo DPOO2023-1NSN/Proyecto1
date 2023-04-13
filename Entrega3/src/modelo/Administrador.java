@@ -31,7 +31,7 @@ public class Administrador extends Usuario {
 	public void crearHabitacion (int id, int tipo, int capacidadAdultos, int capacidadNiños, int cobro, Boolean balcon,
 			Boolean vista, Boolean cocina) {
 		Habitacion habitacion= new Habitacion (id,tipo,capacidadAdultos,capacidadNiños, cobro, balcon, vista, cocina);
-		getInformacion().addHabitacion (habitacion);	
+		getinfo().addHabitacion (habitacion);	
 	}
 	public void crearProductoMenu (File archivoMenu) {
 		//DEPENDE DE LA ESTRUCTURA XML
@@ -39,7 +39,7 @@ public class Administrador extends Usuario {
 	public void crearServicio (String nombre, int precio) {
 		//DEPENDE DE LA ESTRUCTURA XML
 		Servicio servicio = new Servicio(((this.getContadorIdServicio())+1), nombre, precio); //GENERA EL ID EN UNA UNIDAD MAYOT A LA ANTERIOR
-		getInformacion().addServicio (servicio);
+		getinfo().addServicio (servicio);
 		
 		this.setContadorIdServicio(this.getContadorIdServicio()*1); //SUMA 1 AL ATRIBUTO
 	}
@@ -48,7 +48,7 @@ public class Administrador extends Usuario {
 		return true;
 	}
 	public void cambiarPrecioServicio (int id, int precio) {
-		ArrayList <Servicio> listaServicios= getInformacion().getServicios();
+		ArrayList <Servicio> listaServicios= getinfo().getServicios();
 		for (int i=0; i< listaServicios.size(); i++ ) {
 			if (id== listaServicios.get(i).getId()){
 				listaServicios.get(i).setPrecio(precio);

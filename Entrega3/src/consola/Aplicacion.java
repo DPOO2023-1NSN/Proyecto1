@@ -216,10 +216,13 @@ public static ArrayList<ArrayList<String>> crearlistaGrupo(){
 
 
 public static void ejecutarEmpleado2(){
-	
+	int id= Integer.parseInt(input("ingrese el id de la reserva"));
+	hotel.cancelarReserva(id);
 	
 }
 public static void ejecutarEmpleado3(){
+	int id= Integer.parseInt(input("ingrese el id de la reserva"));
+	hotel
 	
 }
 public static void ejecutarEmpleado4(){

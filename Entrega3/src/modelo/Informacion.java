@@ -87,6 +87,10 @@ public class Informacion {
 		manejadorServicio.agregarServicio(servicio);
 	}
 	
+	public void cambiarEstadoReserva(int id, Estado estado) {
+		
+	}
+	
 	
 	
 	

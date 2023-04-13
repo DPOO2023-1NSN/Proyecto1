@@ -17,6 +17,7 @@ import modelo.Huesped;
 import modelo.Informacion;
 import modelo.Reserva;
 import modelo.Usuario;
+import modelo.Estado;
 
 public class Hotel {
 	private static ArrayList <Usuario> listaUsuarios;
@@ -109,5 +110,19 @@ public void crearGrupoYReserva (ArrayList<ArrayList<String>> listaHuespedes, Loc
 
 }
 
+public void cancelarReserva(int id) {
+	Estado nuevoEstado= Estado.TERMINADA;
+	listaUsuarios.get(0).getinfo().cambiarEstadoReserva(id, nuevoEstado);
+}
+public void consultarPagosPendientes(int id) {
+	ArrayList<Reserva> listReservas= listaUsuarios.get(0).getinfo().getReservas();
+	Reserva reserva= null;
+	for (int i=0; i<listReservas.size(); i++) {
+		if (listReservas.get(i).getId()== (id)) {
+			reserva= listReservas.get(i);
+		}
+	}
+	reserva
+}
 
 }
